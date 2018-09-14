@@ -11,8 +11,7 @@ class ContactsController < ApplicationController
       flash[:notice] = 'Comment was submitted'
       redirect_to 'contact_path'
     else
-
-      render :index
+      render 'index'
     end
 
   end

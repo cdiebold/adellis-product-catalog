@@ -5,5 +5,4 @@ class CommentMailerPreview < ActionMailer::Preview
     comment = Comment.last
     CommentMailer.new_comment(comment)
   end
-
 end
