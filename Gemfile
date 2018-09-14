@@ -42,6 +42,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.8'
   gem 'factory_bot_rails'
+  gem 'database_cleaner'
 end
 
 group :development do
@@ -57,6 +58,13 @@ group :development do
   gem 'guard-rspec', require: false
   gem 'rubocop', require: false
   gem 'rufo'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'faker'
+  gem 'simplecov', require: false
 end
 
 
