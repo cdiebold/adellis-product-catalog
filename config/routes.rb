@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'quotes/new'
+  get 'quotes/create'
   get 'products/index'
   get 'products', to: 'products#index'
   get 'products/show'

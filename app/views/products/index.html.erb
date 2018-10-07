@@ -1,62 +1,89 @@
-<h1>Product index</h1>
-
-<div class='container-fluid'>
-  <div id='product-app'>
-    <div class='row h-75 justify-content-center'>
-      <%# <div class='col'> %>
-        <form @submit.prevent="onSubmit" class='form-inline'>
-          <%# <div class='form-row'> %>
-            <%# <div class='col'></div> %>
-            <%# <div class='col-md-5'> %>
-              <input class='form-control' placeholder='Search for products' v-model="search_term">
-            <%# </div> %>
-            <%# <div class='col-md-2'> %>
-              <button type="submit" class='btn btn-info'>Search</button>
-            <%# </div> %>
-                        <%# <div class='col'></div> %>
-
-          <%# </div> %>
-        </form>
-      <%# </div> %>
-    </div>
-    <br/>
-    <div class='row'>
-      <div class='col'>
-        <table class='table'> 
-          <thead>
-            <tr>
-              <th scope='col'>Nsn</th>
-              <th scope='col'>Name</th>
-              <th scope='col'>Part Number</th>
-              <th scope='col'></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="product in displayProducts">
-              <td>{{product.nsn}}</td>
-              <td>{{ product.name }}</td>
-              <td>{{ product.nsn_formatted }}</td>
-              <td><button class='btn btn-info' >Info</button></td>
-            </tr>
-          </tbody>
-        </table>
-        <nav aria-label='Product pagination navigation'>
-          <ul class='pagination justify-content-center'>
-            <li class="page-item">
-              <button class='page-link' @click="first" v-bind:disabled="current_page == 1">First</button>
-            </li>
-            <li class="page-item">
-              <button class="page-link" @click="previous" v-bind:disabled="current_page == 1">Previous</button>
-            </li>
-            <li class="page-item" >
-              <button class="page-link" v-bind:disabled="current_page == total_pages" @click="next">Next</button>
-            </li>
-            <li class="page-item">
-              <button class='page-link' @click="last"  v-bind:disabled="current_page == total_pages">Last</button>
-            </li>
-          </ul>
-        </nav>
+<div class='container'>
+  <h1>Product Page</h1>
+  <div class='row'>
+    <div class='col-md-2'></div>
+    <div class='col'>
+      <div class="input-group md-form form-sm form-2 pl-0">
+        <input class="form-control my-0 py-1 lime-border" type="text" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <span class="input-group-text lime lighten-2" id="basic-text1">
+            <i class="fa fa-search text-grey" aria-hidden="true"></i>
+          </span>
+        </div>
       </div>
     </div>
+    <div class='col-md-3'></div>
   </div>
 </div>
+<br/>
+<div class='row'>
+  <div class='col'>
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">NSN</th>
+          <th scope="col">Name</th>
+          <th scope="col">Part Number</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+  <div class='row'>
+    <div class='col-md-4'>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-secondary">25</button>
+        <button type="button" class="btn btn-secondary">50</button>
+        <button type="button" class="btn btn-secondary">100</button>
+      </div>
+    </div>
+    <div class='col-md-4'>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="#">First</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">Previous</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">Last</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class='col-md-4'>
+      <select class="custom-select" style="display:inline;" id="exampleFormControlSelect1">
+        <option selected="selected">Go To Page</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+  </div>

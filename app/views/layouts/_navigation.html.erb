@@ -1,31 +1,28 @@
-<!-- 
-3 - Navbar with brand center, links on left and right that all collapse into the vertical mobile
-    menu
--->
-<nav class="navbar navbar-expand-md justify-content-between">
-    <div class="container-fluid" id="nav-container">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-nav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse collapse dual-nav w-50 order-1 order-md-0">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <button class="btn btn-primary">Quote</button>
-                </li>
-            </ul>
-        </div>
-        <a href="/" class="navbar-brand mx-auto d-block text-center order-0 order-md-1 w-25">
-            <%= image_tag('logo_small.png') %>
-        </a>
-        <div class="navbar-collapse collapse dual-nav w-50 order-2">
-            <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item">
-                    <%= link_to "Products", products_path, class: 'nav-link' %>
-                </li>
-                <li class="nav-item">
-                    <%= link_to "Contact", contact_path, class: 'nav-link' %>
-                </li>
-            </ul>
-        </div>
-    </div>
+<!--
+  2 - Navbar with brand left, links on center and right that collapse in the vertical mobile
+      menu
+  -->
+<nav class="navbar navbar-light navbar-expand-md justify-content-center">
+  <a class="navbar-brand mr-0" href='/'>
+    <img src="../../assets/logo.png" alt="Adellis Corporation" id='adellis_logo'>
+  </a>
+
+  <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+  <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
+    <ul class="navbar-nav mx-auto text-center">
+      <li class="nav-item active">
+          <button class='btn btn-default' data-toggle="modal" data-target="#quick_quote_modal">Quick Quote</button>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav flex-row justify-content-center flex-nowrap">
+      <li class="nav-item">
+        <%= link_to "Products", products_index_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+          <%= link_to "Contact", contact_path, class: "nav-link" %>
+      </li>
+    </ul>
+  </div>
 </nav>
