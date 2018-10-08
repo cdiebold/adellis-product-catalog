@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_15_145042) do
+ActiveRecord::Schema.define(version: 2018_10_07_224038) do
 
   create_table "comments", force: :cascade do |t|
     t.string "title"
     t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", primary_key: "nsn", id: :string, force: :cascade do |t|
+    t.string "part_number"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

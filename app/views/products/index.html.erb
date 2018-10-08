@@ -3,14 +3,18 @@
   <div class='row'>
     <div class='col-md-2'></div>
     <div class='col'>
+      <%= form_tag "#", method: :get, id: "product-search-form" do %>
       <div class="input-group md-form form-sm form-2 pl-0">
-        <input class="form-control my-0 py-1 lime-border" type="text" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <span class="input-group-text lime lighten-2" id="basic-text1">
-            <i class="fa fa-search text-grey" aria-hidden="true"></i>
-          </span>
-        </div>
+        <%= text_field_tag :product , params[:product], placeholder: "Press enter to search", autofocus: true,
+          class: "form-control my-0 py-1 lime-border" %>
+
+          <div class="input-group-append">
+              <span class="input-group-text lime lighten-2" id="basic-text1">
+                <i class="fa fa-search text-grey" aria-hidden="true"></i>
+              </span>
+            </div>
       </div>
+      <% end %>
     </div>
     <div class='col-md-3'></div>
   </div>
@@ -28,26 +32,19 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-        </tr>
+        <% @products.each do |p|  %>
+          <tr>
+            <td><%= p.nsn %></td>
+            <td><%= p.name %></td>
+            <td><%= p.part_number %></td>
+            <td>
+
+            </td>
+          </tr>
+       <% end %>
       </tbody>
     </table>
+    </div>
 
   </div>
   <div class='row'>
