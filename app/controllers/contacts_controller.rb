@@ -1,5 +1,4 @@
 class ContactsController < ApplicationController
-
   def index
     @comment = Comment.new
   end
@@ -7,13 +6,11 @@ class ContactsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-
-      flash[:notice] = 'Comment was submitted'
-      redirect_to 'contact_path'
+      flash[:notice] = "Comment was submitted"
+      redirect_to products_path
     else
-      render 'index'
+      render "index"
     end
-
   end
 
   private

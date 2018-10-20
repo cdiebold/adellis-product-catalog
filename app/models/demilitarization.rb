@@ -1,0 +1,2 @@
+class Demilitarization < ApplicationRecord
+end

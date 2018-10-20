@@ -64,6 +64,7 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'simplecov', require: false
+  gem 'rubocop-rspec'
 end
 
 group :production do
