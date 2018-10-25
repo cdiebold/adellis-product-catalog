@@ -49,3 +49,8 @@ body {
 
 @import 'pages';
 @import 'header';
+
+
+#quick_quote_modal {
+    z-index: 9999;
+}

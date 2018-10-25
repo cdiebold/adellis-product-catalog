@@ -5,7 +5,7 @@
     <div class='col'>
       <%= form_tag "#", method: :get, id: "product-search-form" do %>
       <div class="input-group md-form form-sm form-2 pl-0">
-        <%= text_field_tag :product , params[:product], placeholder: "Press enter to search", autofocus: true,
+        <%= text_field_tag :product , params[:product], placeholder: "Press enter to search",
           class: "form-control my-0 py-1 lime-border" %>
 
           <div class="input-group-append">
@@ -37,9 +37,13 @@
             <td><%= p.nsn %></td>
             <td><%= p.name %></td>
             <td><%= p.part_number %></td>
-            <td>
-
-            </td>
+            <td><%= link_to 'Details', 
+                {controller: 'products',
+                action: 'show',
+                nsn: p.nsn,
+                part_number: p.part_number},
+                class: 'btn btn-secondary' 
+                %></td>
           </tr>
        <% end %>
       </tbody>
@@ -55,32 +59,7 @@
         <button type="button" class="btn btn-secondary">100</button>
       </div>
     </div>
-    <div class='col-md-4'>
-      <nav aria-label="Page navigation example">
-        <ul class="pagination">
-          <li class="page-item">
-            <a class="page-link" href="#">First</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#">Previous</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#">Next</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#">Last</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-    <div class='col-md-4'>
-      <select class="custom-select" style="display:inline;" id="exampleFormControlSelect1">
-        <option selected="selected">Go To Page</option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
+    <div class='col-md-8'>
+      <%== pagy_nav_compact_bootstrap(@pagy) %>
     </div>
   </div>

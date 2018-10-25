@@ -11,6 +11,12 @@ RSpec.describe Comment, type: :model do
     it 'has a valid random_comment factory' do
       expect(random_comment.save).to eq(true)
     end
+
+    it 'is valid with a title and message' do
+        comment = Comment.new(title: "A very important title",
+                              message: "a" * 30)
+        expect(comment).to be_valid
+    end
     it 'is valid with both a title and message' do
       comment.title = nil
       comment.message = nil
@@ -18,7 +24,8 @@ RSpec.describe Comment, type: :model do
     end
     it 'is not valid without a title' do
       comment.title = nil
-      expect(comment.save).to eq(false)
+      comment.valid?
+      expect(comment.errors[:title]).to include("can't be blank")
     end
     it 'is not valid with a title less then 3 characters' do
       comment.title = 'aa'
