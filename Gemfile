@@ -31,19 +31,19 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'pg'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
 group :development, :test do
   gem 'faker', git: 'https://github.com/stympy/faker'
-  gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.8'
   gem 'factory_bot_rails'
   gem 'database_cleaner'
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -67,9 +67,3 @@ group :test do
   gem 'simplecov', require: false
   gem 'rubocop-rspec'
 end
-
-group :production do
-  gem 'pg'
-end
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
